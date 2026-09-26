@@ -3,10 +3,16 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
   <title>د. آلاء مهدي بدوي | التغذية العلاجية، كوتشينج الوعي، وأتمتة الذكاء الاصطناعي</title>
   <meta name="description"
     content="البورتفوليو الرسمي للدكتورة آلاء مهدي بدوي - صيدلانية وأخصائية تغذية علاجية، كوتش إينياجرام وممارس تقنيات PEAT، ومهندسة أتمتة وذكاء اصطناعي n8n.">
+
+  <!-- Open Graph / Meta for Social & WhatsApp Sharing -->
+  <meta property="og:title" content="د. آلاء مهدي بدوي | استشارات التغذية، الكوتشينج، وأتمتة AI">
+  <meta property="og:description" content="صيدلانية، كوتش معتمد anuna، ومهندسة أتمتة وسير عمل n8n للعيادات والشركات.">
+  <meta property="og:image" content="./assets/images/dr_alaa.jpg">
+  <meta property="og:type" content="website">
 
   <!-- Favicon -->
   <link rel="icon"
@@ -19,11 +25,11 @@
     href="https://fonts.googleapis.com/css2?family=Alexandria:wght@400;600;700;800&family=Cairo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
-  <!-- FontAwesome Icons for crisp UI elements -->
+  <!-- FontAwesome Icons for UI -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Custom Stylesheet -->
-  <link rel="stylesheet" href="style.css">
+  <!-- Custom Stylesheet (Strictly Relative Path for GitHub Pages) -->
+  <link rel="stylesheet" href="./style.css">
 </head>
 
 <body data-lang="ar">
@@ -58,7 +64,7 @@
       <!-- Action Group: Language Switcher & WhatsApp CTA -->
       <div class="nav-actions">
         <!-- Language Switcher Button -->
-        <button id="langToggle" class="lang-btn" aria-label="Switch Language">
+        <button id="langToggle" class="lang-btn" aria-label="Switch Language" title="تغيير اللغة / Switch Language">
           <i class="fa-solid fa-globe"></i>
           <span id="langLabel">English</span>
         </button>
@@ -78,28 +84,46 @@
     </div>
   </header>
 
+  <!-- Mobile Drawer Backdrop Overlay -->
+  <div class="drawer-overlay" id="drawerOverlay"></div>
+
   <!-- Mobile Drawer Menu -->
-  <div class="mobile-drawer" id="mobileDrawer">
+  <aside class="mobile-drawer" id="mobileDrawer" aria-label="Mobile Navigation">
     <div class="drawer-header">
-      <span class="drawer-logo">✦ د. آلاء مهدي</span>
-      <button class="drawer-close" id="drawerClose"><i class="fa-solid fa-xmark"></i></button>
+      <div class="drawer-brand">
+        <span class="logo-symbol-sm">✦</span>
+        <span class="drawer-logo" data-i18n="nav.logoTitle">د. آلاء مهدي بدوي</span>
+      </div>
+      <button class="drawer-close" id="drawerClose" aria-label="Close Menu">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
     </div>
     <div class="drawer-links">
-      <a href="#about" class="drawer-link" data-i18n="nav.about">نبذة عني</a>
-      <a href="#pillars" class="drawer-link" data-i18n="nav.pillars">المسارات والبرامج</a>
-      <a href="#automations" class="drawer-link" data-i18n="nav.automations">أتمتة n8n</a>
-      <a href="#media" class="drawer-link" data-i18n="nav.media">الظهور التلفزيوني</a>
-      <a href="#credentials" class="drawer-link" data-i18n="nav.credentials">الاعتمادات</a>
-      <a href="#testimonials" class="drawer-link" data-i18n="nav.testimonials">آراء المشتركين</a>
-      <a href="#contact" class="drawer-link" data-i18n="nav.contact">تواصل معي</a>
+      <a href="#about" class="drawer-link" data-i18n="nav.about"><i class="fa-solid fa-user"></i> نبذة عني</a>
+      <a href="#pillars" class="drawer-link" data-i18n="nav.pillars"><i class="fa-solid fa-shapes"></i> المسارات
+        والبرامج</a>
+      <a href="#automations" class="drawer-link" data-i18n="nav.automations"><i class="fa-solid fa-diagram-project"></i>
+        أتمتة n8n</a>
+      <a href="#media" class="drawer-link" data-i18n="nav.media"><i class="fa-solid fa-tv"></i> الظهور التلفزيوني</a>
+      <a href="#credentials" class="drawer-link" data-i18n="nav.credentials"><i class="fa-solid fa-certificate"></i>
+        الاعتمادات</a>
+      <a href="#testimonials" class="drawer-link" data-i18n="nav.testimonials"><i class="fa-solid fa-comments"></i> آراء
+        المشتركين</a>
+      <a href="#contact" class="drawer-link" data-i18n="nav.contact"><i class="fa-solid fa-paper-plane"></i> تواصل
+        معي</a>
     </div>
     <div class="drawer-actions">
-      <a href="https://wa.me/201024049463" target="_blank" rel="noopener" class="btn btn-primary btn-block">
+      <button id="mobileLangToggle" class="btn btn-outline btn-block mb-3">
+        <i class="fa-solid fa-globe"></i>
+        <span id="mobileLangLabel">Switch to English</span>
+      </button>
+      <a href="https://wa.me/201024049463?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%AF.%20%D8%A2%D9%84%D8%A7%D8%A1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%AD%D8%AC%D8%B2%20%D8%A7%D8%B3%D8%AA%D8%B4%D8%A7%D8%B1%D8%A9"
+        target="_blank" rel="noopener" class="btn btn-primary btn-block">
         <i class="fa-brands fa-whatsapp"></i>
         <span data-i18n="nav.cta">احجز استشارتك</span>
       </a>
     </div>
-  </div>
+  </aside>
 
   <main>
     <!-- HERO SECTION -->
@@ -145,7 +169,8 @@
               <i class="fa-solid fa-sparkles"></i>
               <span data-i18n="hero.exploreBtn">استكشف البرامج والخدمات</span>
             </a>
-            <a href="https://wa.me/201024049463" target="_blank" rel="noopener" class="btn btn-outline btn-lg">
+            <a href="https://wa.me/201024049463?text=%D9%85%D8%B1%D8%AD%D8%A8%D8%A7%D9%8B%20%D8%AF.%20%D8%A2%D9%84%D8%A7%D8%A1%D8%8C%20%D8%A3%D9%88%D8%AF%20%D8%A7%D9%84%D8%AA%D9%88%D8%A7%D8%B5%D9%84%20%D9%85%D8%B9%D9%83%D9%90%20%D9%84%D9%84%D8%A7%D8%B3%D8%AA%D9%81%D8%B3%D8%A7%D8%B1"
+              target="_blank" rel="noopener" class="btn btn-outline btn-lg">
               <i class="fa-brands fa-whatsapp"></i>
               <span data-i18n="hero.chatBtn">تواصل مباشر عبر واتساب</span>
             </a>
@@ -170,11 +195,12 @@
           </div>
         </div>
 
-        <!-- Image Column with Floating Cards -->
+        <!-- Image Column with Floating / Responsive Badges -->
         <div class="hero-visual">
           <div class="portrait-wrapper">
             <div class="portrait-glow"></div>
-            <img src="assets/images/dr_alaa.jpg" alt="د. آلاء مهدي بدوي - Dr. Alaa Mahdy Badawy" class="hero-img">
+            <img src="./assets/images/dr_alaa.jpg" alt="د. آلاء مهدي بدوي - Dr. Alaa Mahdy Badawy" class="hero-img"
+              width="420" height="600">
 
             <!-- Floating Badge 1: Media Verified -->
             <div class="floating-badge badge-top-right">
@@ -192,6 +218,18 @@
                 <span class="badge-title" data-i18n="hero.badgeBotTitle">أتمتة سير العمل n8n</span>
                 <span class="badge-sub" data-i18n="hero.badgeBotSub">أنظمة ذكية للعيادات والشركات</span>
               </div>
+            </div>
+          </div>
+
+          <!-- Mobile Hero Badges Strip (visible only on small screens) -->
+          <div class="mobile-hero-badges">
+            <div class="mobile-badge-pill">
+              <i class="fa-solid fa-tv text-gold"></i>
+              <span data-i18n="hero.badgeTopTitle">خبير معتمد إعلامياً</span>
+            </div>
+            <div class="mobile-badge-pill">
+              <i class="fa-solid fa-diagram-project text-teal"></i>
+              <span data-i18n="hero.badgeBotTitle">أتمتة سير العمل n8n</span>
             </div>
           </div>
         </div>
@@ -312,7 +350,7 @@
                 <span data-i18n="programs.bookP1">احجز برنامج الـ 3 شهور الآن</span>
               </a>
               <button class="btn btn-ghost btn-block view-brochure-btn"
-                data-img="assets/images/program_transformation_3months.jpg"
+                data-img="./assets/images/program_transformation_3months.jpg"
                 data-title="برنامج التحول لمدة 3 شهور - anuna">
                 <i class="fa-regular fa-image"></i>
                 <span data-i18n="programs.viewPoster">معاينة تفاصيل البوستر الرسمي</span>
@@ -362,7 +400,8 @@
                 <span data-i18n="programs.bookP2">احجز جلسة كوتشينج الآن</span>
               </a>
               <button class="btn btn-ghost btn-block view-brochure-btn"
-                data-img="assets/images/program_anuna_coaching.jpg" data-title="جلسات الكوتشينج وتحرير المشاعر - anuna">
+                data-img="./assets/images/program_anuna_coaching.jpg"
+                data-title="جلسات الكوتشينج وتحرير المشاعر - anuna">
                 <i class="fa-regular fa-image"></i>
                 <span data-i18n="programs.viewPoster">معاينة تفاصيل البوستر الرسمي</span>
               </button>
@@ -436,9 +475,9 @@
 
           <!-- Workflow 1: Clinic Calendar & Booking -->
           <div class="workflow-card">
-            <div class="workflow-preview" data-img="assets/images/workflow_calendar_booking.jpg"
+            <div class="workflow-preview" data-img="./assets/images/workflow_calendar_booking.jpg"
               data-title="نظام حجز المواعيد الآلي للعيادات ومزامنة التقويم">
-              <img src="assets/images/workflow_calendar_booking.jpg"
+              <img src="./assets/images/workflow_calendar_booking.jpg"
                 alt="Workflow: Automated Clinic Booking & Calendar Sync" loading="lazy">
               <div class="preview-overlay">
                 <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -472,9 +511,9 @@
 
           <!-- Workflow 2: Scheduled Follow-up -->
           <div class="workflow-card">
-            <div class="workflow-preview" data-img="assets/images/workflow_scheduled_followup.jpg"
+            <div class="workflow-preview" data-img="./assets/images/workflow_scheduled_followup.jpg"
               data-title="محرك المتابعة الذكية والتنبيهات المجدولة">
-              <img src="assets/images/workflow_scheduled_followup.jpg"
+              <img src="./assets/images/workflow_scheduled_followup.jpg"
                 alt="Workflow: Automated Scheduled Follow-up Engine" loading="lazy">
               <div class="preview-overlay">
                 <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -511,9 +550,9 @@
 
           <!-- Workflow 3: Multi-channel API Engine -->
           <div class="workflow-card">
-            <div class="workflow-preview" data-img="assets/images/workflow_api_multichannel.jpg"
+            <div class="workflow-preview" data-img="./assets/images/workflow_api_multichannel.jpg"
               data-title="محرك الربط البرمجي والتنبيهات متعددة القنوات">
-              <img src="assets/images/workflow_api_multichannel.jpg"
+              <img src="./assets/images/workflow_api_multichannel.jpg"
                 alt="Workflow: REST API Multi-channel Dispatch Engine" loading="lazy">
               <div class="preview-overlay">
                 <i class="fa-solid fa-magnifying-glass-plus"></i>
@@ -565,7 +604,7 @@
           <!-- TV Appearance 1: Studio Interview -->
           <div class="media-card">
             <div class="media-image-wrapper">
-              <img src="assets/images/tv_appearance_1.jpg" alt="د. آلاء مهدي بدوي في لقاء تلفزيوني حواري"
+              <img src="./assets/images/tv_appearance_1.jpg" alt="د. آلاء مهدي بدوي في لقاء تلفزيوني حواري"
                 loading="lazy">
               <div class="media-badge"><i class="fa-solid fa-circle-play"></i> <span data-i18n="media.ep1Badge">استضافة
                   حوارية</span></div>
@@ -582,7 +621,7 @@
           <!-- TV Appearance 2: Culinary & Health Studio -->
           <div class="media-card">
             <div class="media-image-wrapper">
-              <img src="assets/images/tv_appearance_2.jpg"
+              <img src="./assets/images/tv_appearance_2.jpg"
                 alt="د. آلاء مهدي بدوي في استوديو الطهي الصحي والتغذية العلاجية" loading="lazy">
               <div class="media-badge"><i class="fa-solid fa-utensils"></i> <span data-i18n="media.ep2Badge">فقرة
                   التغذية والطهي الصحي</span></div>
@@ -731,7 +770,7 @@
               حضورك ومعلوماتك ووقتك والراحه الي في الجلسه 🤍"
             </p>
             <div class="testi-footer">
-              <button class="btn btn-ghost btn-sm view-brochure-btn" data-img="assets/images/feedback_1.jpg"
+              <button class="btn btn-ghost btn-sm view-brochure-btn" data-img="./assets/images/feedback_1.jpg"
                 data-title="رسالة واتساب موثقة من عميل (مع حماية الخصوصية)">
                 <i class="fa-solid fa-eye"></i> <span data-i18n="testi.viewSnapshot">مشاهدة لقطة الرسالة</span>
               </button>
@@ -764,7 +803,7 @@
             </div>
             <p class="testi-content" data-i18n="testi.t3Content">
               "بقول الحمد لله ان ربنا وفقني للخطوه ديه رغم اني ساعات بحسها صعبه.. فكره ان في حد اتكلم معاه هيفهمني او
-              ينور لي حتى مش واخده بالي منها دي حاجه كبيره وفرقت في طريقة اتخاذي لقراراتي."
+              ينور لي حتى مش واخده بالي منها دي حاجه كبيرة وفرقت في طريقة اتخاذي لقراراتي."
             </p>
           </div>
 
@@ -838,7 +877,7 @@
 
             <form id="inquiryForm" class="inquiry-form">
               <div class="form-group">
-                <label for="userName" data-i18n="contact.nameLabel">الاسم الكامل</label>
+                <label for="userName" data-i18n="contact.nameLabel">الاسم الكريم</label>
                 <input type="text" id="userName" required placeholder="أدخل اسمك الكريم"
                   data-i18n-placeholder="contact.namePlaceholder">
               </div>
@@ -917,21 +956,22 @@
   </a>
 
   <!-- UNIVERSAL IMAGE LIGHTBOX MODAL -->
-  <div class="lightbox-modal" id="lightboxModal">
+  <div class="lightbox-modal" id="lightboxModal" role="dialog" aria-modal="true" aria-hidden="true">
     <div class="lightbox-overlay" id="lightboxOverlay"></div>
     <div class="lightbox-dialog">
       <div class="lightbox-header">
         <h4 id="lightboxTitle">معاينة الصورة</h4>
-        <button class="lightbox-close" id="lightboxClose"><i class="fa-solid fa-xmark"></i></button>
+        <button class="lightbox-close" id="lightboxClose" aria-label="Close Lightbox"><i
+            class="fa-solid fa-xmark"></i></button>
       </div>
       <div class="lightbox-content">
-        <img id="lightboxImg" src="" alt="Preview">
+        <img id="lightboxImg" src="" alt="Preview" loading="lazy">
       </div>
     </div>
   </div>
 
-  <!-- Main JavaScript File -->
-  <script src="script.js"></script>
+  <!-- Main JavaScript File (Relative Path for GitHub Pages) -->
+  <script src="./script.js"></script>
 </body>
 
 </html>

@@ -11,7 +11,7 @@
   --bg-tertiary: #F1F5F9;
   --bg-card: rgba(255, 255, 255, 0.95);
   --bg-card-hover: rgba(255, 255, 255, 1);
-  
+
   /* Text Colors */
   --text-main: #0F172A;
   --text-muted: #475569;
@@ -70,7 +70,9 @@
 }
 
 /* Base Reset & Smooth Scroll */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -248,11 +250,25 @@ img {
 }
 
 /* Helper Text Colors */
-.text-gold { color: var(--gold-primary); }
-.text-teal { color: var(--teal-primary); }
-.text-purple { color: var(--purple-primary); }
-.text-accent { color: var(--gold-primary); }
-.mb-3 { margin-bottom: 12px; }
+.text-gold {
+  color: var(--gold-primary);
+}
+
+.text-teal {
+  color: var(--teal-primary);
+}
+
+.text-purple {
+  color: var(--purple-primary);
+}
+
+.text-accent {
+  color: var(--gold-primary);
+}
+
+.mb-3 {
+  margin-bottom: 12px;
+}
 
 /* ===================================================================
    BUTTONS & TOUCH TARGETS
@@ -667,9 +683,20 @@ body[dir="ltr"] .mobile-drawer.open {
 }
 
 @keyframes pulse {
-  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7); }
-  70% { transform: scale(1); box-shadow: 0 0 0 8px rgba(13, 148, 136, 0); }
-  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(13, 148, 136, 0); }
+  0% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 8px rgba(13, 148, 136, 0);
+  }
+
+  100% {
+    transform: scale(0.95);
+    box-shadow: 0 0 0 0 rgba(13, 148, 136, 0);
+  }
 }
 
 .hero-title {
@@ -811,8 +838,15 @@ body[dir="ltr"] .mobile-drawer.open {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-7px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-7px);
+  }
 }
 
 .badge-top-right {
@@ -1615,9 +1649,20 @@ body[dir="ltr"] .media-badge {
   flex-shrink: 0;
 }
 
-.icon-whatsapp { background: rgba(37, 211, 102, 0.2); color: #25D366; }
-.icon-instagram { background: rgba(225, 48, 108, 0.2); color: #E1306C; }
-.icon-linkedin { background: rgba(10, 102, 194, 0.2); color: #0A66C2; }
+.icon-whatsapp {
+  background: rgba(37, 211, 102, 0.2);
+  color: #25D366;
+}
+
+.icon-instagram {
+  background: rgba(225, 48, 108, 0.2);
+  color: #E1306C;
+}
+
+.icon-linkedin {
+  background: rgba(10, 102, 194, 0.2);
+  color: #0A66C2;
+}
 
 .method-details {
   display: flex;
@@ -1876,8 +1921,15 @@ body[dir="ltr"] .floating-whatsapp .tooltip-text {
 }
 
 @keyframes modalIn {
-  from { opacity: 0; transform: scale(0.96); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 .lightbox-header {
